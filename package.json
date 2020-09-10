@@ -1,8 +1,11 @@
 {
   "name": "@topsoft4u/utils",
-  "version": "1.1.3",
+  "version": "1.0.1",
   "description": "Hooks and stuff",
   "repository": "git://github.com/TopSoft4U/utils.git",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "author": "Łukasz Kolasa",
   "files": [
     "dist",
@@ -12,15 +15,14 @@
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
   "module": "esm/index.js",
-  "exports": {
-    "./": "./lib/"
-  },
   "scripts": {
     "build:cjs": "tsc",
     "build:es": "tsc -m esNext --outDir esm",
+    "clean": "rimraf dist esm",
     "build": "yarn run build:cjs && yarn run build:es",
-    "prepublish": "rimraf dist esm && eslint . --fix && yarn run build",
-    "generate-barrels": "barrelsby --delete"
+    "preversion": "yarn run clean && yarn run lint && yarn run build",
+    "postpublish": "git push --all origin -u && git push --tags origin",
+    "lint": "eslint --ext js,jsx,ts,tsx src --fix"
   },
   "dependencies": {
     "query-string": "^5.1.1"
