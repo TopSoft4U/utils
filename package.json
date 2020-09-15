@@ -21,7 +21,9 @@
     "build:es": "tsc -m esNext --outDir esm",
     "clean": "rimraf dist esm",
     "build": "yarn run build:cjs",
-    "watch": "rimraf dist tsconfig.tsbuildinfo && tsc -w --incremental",
+    "watch:clean": "rimraf dist tsconfig.tsbuildinfo && tsc -w --incremental",
+    "watch": "tsc -w --incremental",
+    "build-watch": "yarn run build:cjs && yarn run watch",
     "preversion": "yarn run clean && yarn run lint && yarn run build",
     "postpublish": "git push --all origin -u && git push --tags origin",
     "lint": "eslint --ext js,jsx,ts,tsx src --fix"
