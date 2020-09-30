@@ -1,7 +1,7 @@
 {
   "name": "@topsoft4u/utils",
   "license": "UNLICENSED",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Hooks and stuff",
   "repository": "git://github.com/TopSoft4U/utils.git",
   "publishConfig": {
@@ -15,31 +15,25 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "typings": "dist/index.d.ts",
-  "module": "esm/index.js",
   "scripts": {
-    "build:cjs": "tsc",
-    "build:es": "tsc -m esNext --outDir esm",
-    "clean": "rimraf dist esm",
-    "build": "yarn run build:cjs",
-    "watch:clean": "rimraf dist tsconfig.tsbuildinfo && tsc -w --incremental",
-    "watch": "tsc -w --incremental",
-    "build-watch": "yarn run build:cjs && yarn run watch",
+    "build": "yarn run clean && yarn run generate_indexes && tsc",
+    "clean": "rimraf dist",
+    "generate_indexes": "barrelsby --delete --directory ./src",
+    "watch": "rimraf dist tsconfig.tsbuildinfo && tsc -w --incremental",
+    "lint": "eslint --ext js,jsx,ts,tsx src --fix",
     "preversion": "yarn run clean && yarn run lint && yarn run build",
-    "postpublish": "git push --all origin -u && git push --tags origin",
-    "lint": "eslint --ext js,jsx,ts,tsx src --fix"
+    "postpublish": "git push --all origin -u && git push --tags origin"
   },
   "dependencies": {
+    "query-string": "^5.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0",
-    "query-string": "^5.1.1"
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "@types/node": "^14.6.4",
     "@types/query-string": "^5.1.0",
     "@types/react": "^16.9.49",
     "@types/react-router-dom": "^5.1.5"
-  },
-  "peerDependencies": {
   }
 }
