@@ -2,7 +2,7 @@
   "name": "@topsoft4u/utils",
   "sideEffects": false,
   "license": "UNLICENSED",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Hooks and stuff",
   "repository": "git://github.com/TopSoft4U/utils.git",
   "publishConfig": {
@@ -15,12 +15,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "yarn run clean && yarn run generate_indexes && yarn run lint && tsc",
+    "build": "yarn run clean && yarn run lint && tsc",
     "clean": "rimraf dist",
     "generate_indexes": "barrelsby --delete --directory ./src",
     "watch": "yarn run clean && rimraf tsconfig.tsbuildinfo && tsc -w --incremental",
     "lint": "eslint --ext js,jsx,ts,tsx src --fix",
-    "preversion"  : "yarn run build",
+    "preversion": "yarn run build",
     "postpublish": "git push --all origin -u && git push --tags origin"
   },
   "dependencies": {
