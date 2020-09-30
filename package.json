@@ -1,5 +1,6 @@
 {
   "name": "@topsoft4u/utils",
+  "sideEffects": false,
   "license": "UNLICENSED",
   "version": "1.0.2",
   "description": "Hooks and stuff",
@@ -9,19 +10,17 @@
   },
   "author": "Łukasz Kolasa",
   "files": [
-    "dist",
-    "esm"
+    "dist"
   ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
   "scripts": {
     "build": "yarn run clean && yarn run generate_indexes && yarn run lint && tsc",
     "clean": "rimraf dist",
     "generate_indexes": "barrelsby --delete --directory ./src",
-    "watch": "rimraf dist tsconfig.tsbuildinfo && tsc -w --incremental",
+    "watch": "yarn run clean && rimraf tsconfig.tsbuildinfo && tsc -w --incremental",
     "lint": "eslint --ext js,jsx,ts,tsx src --fix",
-    "preversion": "yarn run build",
+    "preversion"  : "yarn run build",
     "postpublish": "git push --all origin -u && git push --tags origin"
   },
   "dependencies": {
