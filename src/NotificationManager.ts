@@ -1,6 +1,6 @@
 import {EventEmitter} from "events";
 
-class NotificationManager extends EventEmitter {
+class NotificationManagerClass extends EventEmitter {
   listNotify: NotificationType[] = [];
   id = 0;
 
@@ -58,7 +58,7 @@ class NotificationManager extends EventEmitter {
   // endregion
 }
 
-export default new NotificationManager();
+export const NotificationManager = new NotificationManagerClass();
 
 type NotificationObjectType = {
   message: string;

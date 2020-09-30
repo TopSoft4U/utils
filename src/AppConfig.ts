@@ -1,7 +1,7 @@
 import {NodeEnvironments} from "./types";
 import {isDev} from "./utils";
 
-class AppConfig {
+class AppConfigClass {
   config?: ApplicationConfig<any>;
 
   get = <T>(): EnvironmentConfig<T> => {
@@ -14,7 +14,7 @@ class AppConfig {
   };
 }
 
-export default new AppConfig();
+export const AppConfig = new AppConfigClass();
 
 export type ApplicationConfig<T> = {
   [K in NodeEnvironments]: EnvironmentConfig<T>;
