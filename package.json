@@ -2,7 +2,7 @@
   "name": "@topsoft4u/utils",
   "sideEffects": false,
   "license": "UNLICENSED",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Hooks and stuff",
   "repository": "git://github.com/TopSoft4U/utils.git",
   "publishConfig": {
