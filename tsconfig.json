@@ -1,5 +1,5 @@
 {
-  "extends": "@topsoft4u/tsconfig/tsconfig.cjs.json",
+  "extends": "../tsconfig/tsconfig.cjs.json",
   "compilerOptions": {
     "outDir": "dist",
     "sourceRoot": "src",
