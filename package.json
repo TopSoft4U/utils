@@ -2,7 +2,7 @@
   "name": "@topsoft4u/utils",
   "sideEffects": false,
   "license": "UNLICENSED",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Hooks and stuff",
   "repository": "git://github.com/TopSoft4U/utils.git",
   "publishConfig": {
@@ -24,8 +24,8 @@
     "postpublish": "git push --all origin -u && git push --tags origin"
   },
   "dependencies": {
-    "query-string": "^5.1.1",
     "next-i18next": "^6.0.2",
+    "query-string": "^5.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0"
