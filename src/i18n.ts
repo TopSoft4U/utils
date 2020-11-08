@@ -1,5 +1,4 @@
-import NextI18Next, {InitConfig} from "next-i18next";
-
+import NextI18Next, {InitConfig, TFunction, WithTranslation} from "next-i18next";
 import {Dictionary} from "./types";
 
 const baseCfg: InitConfig = {
@@ -62,9 +61,22 @@ export const localeXTerritory: Dictionary<string> = {
   "ru": "ru_RU",
 };
 
-export type NamespaceLike<T> = ((T)[keyof T]) | ((typeof i18nSharedNamespaces)[keyof typeof i18nSharedNamespaces]) | string;
+export type NamespaceLike<T> = ((T)[keyof T])
+  | ((typeof i18nSharedNamespaces)[keyof typeof i18nSharedNamespaces])
+  | string;
 
-export const includeSharedNamespaces = <T extends Dictionary<string>>(namespaces: Array<NamespaceLike<T>> = []): string[] => [i18nSharedNamespaces.Common, i18nSharedNamespaces.Shared, i18nSharedNamespaces.Error, i18nSharedNamespaces.API, ...namespaces];
+export const includeSharedNamespaces = <T extends Dictionary<string>>(
+  namespaces: Array<NamespaceLike<T>> = []
+): string[] =>
+    [i18nSharedNamespaces.Common, i18nSharedNamespaces.Shared, i18nSharedNamespaces.Error, i18nSharedNamespaces.API, ...namespaces];
+
+export type FakeTNS<T> = {
+  ns: NamespaceLike<T>
+};
+
+export type {TFunction, WithTranslation};
+
+export const fakeT = <T = typeof i18nSharedNamespaces>(str: string, options: FakeTNS<T>) => str;
 
 // @ts-ignore
 export {nextI18NextRewrites} from "next-i18next/rewrites";

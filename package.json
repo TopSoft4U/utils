@@ -18,20 +18,28 @@
     "build": "yarn run clean && yarn run lint && tsc",
     "clean": "rimraf dist",
     "generate_indexes": "barrelsby --delete --directory ./src",
-    "watch": "yarn run clean && rimraf tsconfig.tsbuildinfo && tsc -w --incremental",
+    "watch": "yarn run clean && rimraf tsconfig.tsbuildinfo && tsc -b -w --incremental",
     "lint": "eslint --ext js,jsx,ts,tsx src --fix",
     "preversion": "yarn run build",
-    "postpublish": "git push --all origin -u && git push --tags origin"
+    "postpublish": "git push --all origin -u && git push --tags origin",
+    "indexes:typeorm": "barrelsby --delete --directory ./src/typeorm"
   },
   "dependencies": {
-    "next-i18next": "^6.0.2",
+    "bcrypt": "^5.0.0",
+    "mysql2": "^2.2.5",
+    "next-i18next": "^7.0.1",
+    "nodemailer": "^6.4.11",
     "query-string": "^5.1.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "0.2.29"
   },
   "devDependencies": {
+    "@types/bcrypt": "^3.0.0",
     "@types/node": "^14.6.4",
+    "@types/nodemailer": "^6.4.0",
     "@types/query-string": "^5.1.0",
     "@types/react": "^16.9.49",
     "@types/react-router-dom": "^5.1.5"
