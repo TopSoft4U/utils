@@ -1,11 +1,6 @@
 import "reflect-metadata";
-
-import {ObjectType} from "typeorm/common/ObjectType";
-import {ConnectionOptions} from "typeorm/connection/ConnectionOptions";
-import {Repository} from "typeorm/repository/Repository";
-
 import {MysqlConnectionOptions} from "typeorm/driver/mysql/MysqlConnectionOptions";
-import {Connection, EntityTarget, getConnectionManager, getConnection as _getConnection} from "typeorm";
+import {Connection, getConnectionManager, getConnection as _getConnection, ObjectType, EntityTarget, ConnectionOptions, Repository} from "typeorm";
 import {isDev} from "../utils";
 import {AppConfig} from "../AppConfig";
 
@@ -44,20 +39,6 @@ export const ensureConnection = async (name = "default") => {
   const connectionManager = getConnectionManager();
 
   const cfg = AppConfig.get<TypeORMConfig>();
-
-  console.log({
-    type: "mariadb",
-    host: process.env.DB_HOST || "localhost",
-    port: Number(process.env.DB_PORT) || 3306,
-    database: process.env.DB_DATABASE,
-    username: process.env.DB_USER || "root",
-    password: process.env.DB_PASSWORD || "",
-    synchronize: true,
-    // debug: process.env.NODE_ENV === "development",
-    logging: process.env.NODE_ENV === "development",
-    ...(cfg),
-  });
-
   const options: OptType = {
     default: {
       type: "mariadb",
@@ -65,7 +46,6 @@ export const ensureConnection = async (name = "default") => {
       port: Number(process.env.DB_PORT) || 3306,
       database: process.env.DB_DATABASE,
       username: process.env.DB_USER || "root",
-      debug: process.env.NODE_ENV === "development",
       logging: process.env.NODE_ENV === "development",
       synchronize: true,
       ...(cfg),

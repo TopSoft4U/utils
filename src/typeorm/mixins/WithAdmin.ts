@@ -1,4 +1,3 @@
-
 import {Column} from "typeorm";
 import {Constructor} from "../connection";
 import {WithPassword} from "./WithPassword";
