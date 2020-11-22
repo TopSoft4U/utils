@@ -48,6 +48,8 @@ export const ensureConnection = async (name = "default") => {
       username: process.env.DB_USER || "root",
       logging: process.env.NODE_ENV === "development",
       synchronize: true,
+      supportBigNumbers: true,
+      bigNumberStrings: false,
       ...(cfg),
     },
   };
