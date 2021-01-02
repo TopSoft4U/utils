@@ -1,6 +1,6 @@
 {
   "name": "@topsoft4u/utils",
-  "sideEffects": false,
+  "private": true,
   "license": "UNLICENSED",
   "version": "1.0.7",
   "description": "Hooks and stuff",
@@ -9,38 +9,31 @@
     "registry": "https://npm.pkg.github.com/"
   },
   "author": "Łukasz Kolasa",
-  "files": [
-    "dist"
-  ],
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
   "scripts": {
-    "build": "yarn run clean && yarn run lint && tsc",
-    "clean": "rimraf dist",
+    "typecheck": "tsc -p ./ --noEmit",
+    "clean": "rimraf --no-glob ./dist",
+    "eslint": "eslint --ext js,jsx,ts,tsx src --fix",
+    "deps:check": "npx npm-check-updates --dep prod,dev,optional",
+    "deps:update": "npx npm-check-updates --dep prod,dev,optional -u",
+
+    "build": "yarn run clean && yarn run eslint && tsc",
     "generate_indexes": "barrelsby --delete --directory ./src",
-    "watch": "yarn run clean && rimraf tsconfig.tsbuildinfo && tsc -b -w --incremental",
-    "lint": "eslint --ext js,jsx,ts,tsx src --fix",
     "preversion": "yarn run build",
     "postpublish": "git push --all origin -u && git push --tags origin",
     "indexes:typeorm": "barrelsby --delete --directory ./src/typeorm"
   },
   "dependencies": {
-    "bcrypt": "^5.0.0",
-    "mysql2": "^2.2.5",
-    "next": "^10.0.1",
-    "next-i18next": "6.0.2",
-    "nodemailer": "^6.4.15",
+    "global": "^4.4.0",
+    "next": "^10.0.4",
     "query-string": "^5.1.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
-    "reflect-metadata": "^0.1.13",
-    "typeorm": "0.2.29"
+    "reflect-metadata": "^0.1.13"
   },
   "devDependencies": {
-    "@types/bcrypt": "^3.0.0",
     "@types/node": "^14.14.6",
-    "@types/nodemailer": "^6.4.0",
     "@types/query-string": "^5.1.0",
     "@types/react": "^16.9.56",
     "@types/react-router-dom": "^5.1.6"

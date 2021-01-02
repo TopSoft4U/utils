@@ -1,15 +1,17 @@
 {
-  "extends": "../tsconfig/tsconfig.cjs.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
+    "noEmit": false,
+    "rootDir": "src",
     "outDir": "dist",
-    "rootDir": "src"
+    "composite": false
   },
   "exclude": [
-    "dist",
-    "esm",
-    "node_modules"
+    "node_modules",
+    "dist"
   ],
   "include": [
-    "src"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ]
 }

@@ -1,5 +1,5 @@
 import {SyntheticEvent} from "react";
-import {_NextI18Next} from "./i18n";
+import getT from "next-translate/getT";
 
 export const isServer = () => typeof window === "undefined";
 export const isDev = () => process.env.NODE_ENV !== "production";
@@ -36,12 +36,11 @@ export const updateItemInArray = <T>(array: T[], index: number, value?: T) => {
   return newArray;
 };
 
-export const boolToText = (val: boolean) => {
-  const {i18n} = _NextI18Next.getInstance();
-  const t = i18n.t.bind(i18n);
+export const boolToText = async (val: boolean) => {
+  const t = await getT(undefined, "shared");
 
   if (val)
-    return t("Yes", {ns: "shared"});
+    return t("Yes");
 
-  return t("No", {ns: "shared"});
+  return t("No");
 };
