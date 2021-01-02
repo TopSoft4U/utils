@@ -1,6 +1,5 @@
 {
   "name": "@topsoft4u/utils",
-  "private": true,
   "license": "UNLICENSED",
   "version": "1.0.7",
   "description": "Hooks and stuff",
