@@ -9,7 +9,4 @@ export const localeXTerritory: Dictionary<string> = {
   "ru": "ru_RU",
 };
 
-export const fakeT = (
-  str: string,
-  opts: { ns: string }
-) => str;
+export const fakeT = (str: string) => str;

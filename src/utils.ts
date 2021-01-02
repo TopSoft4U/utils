@@ -36,11 +36,11 @@ export const updateItemInArray = <T>(array: T[], index: number, value?: T) => {
   return newArray;
 };
 
-export const boolToText = async (val: boolean) => {
-  const t = await getT(undefined, "shared");
+export const boolToText = async (val: boolean, lang = "en") => {
+  const t = await getT(lang, "shared");
 
   if (val)
-    return t("Yes");
+    return t("shared:yes");
 
-  return t("No");
+  return t("shared:no");
 };
