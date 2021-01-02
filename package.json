@@ -1,7 +1,7 @@
 {
   "name": "@topsoft4u/utils",
   "license": "UNLICENSED",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Hooks and stuff",
   "repository": "git://github.com/TopSoft4U/utils.git",
   "publishConfig": {
@@ -10,13 +10,12 @@
   "author": "Łukasz Kolasa",
   "main": "src/index.ts",
   "scripts": {
+    "build": "yarn run clean && yarn run eslint && tsc",
     "typecheck": "tsc -p ./ --noEmit",
     "clean": "rimraf --no-glob ./dist",
     "eslint": "eslint --ext js,jsx,ts,tsx src --fix",
     "deps:check": "npx npm-check-updates --dep prod,dev,optional",
     "deps:update": "npx npm-check-updates --dep prod,dev,optional -u",
-
-    "build": "yarn run clean && yarn run eslint && tsc",
     "generate_indexes": "barrelsby --delete --directory ./src",
     "preversion": "yarn run build",
     "postpublish": "git push --all origin -u && git push --tags origin",
