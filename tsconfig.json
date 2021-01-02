@@ -1,5 +1,5 @@
 {
-  "extends": "@topsoft4u/tsconfig/tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "noEmit": false,
     "rootDir": "src",
