@@ -22,7 +22,8 @@
   "dependencies": {
     "next": "^10.0.4",
     "query-string": "^5.1.1",
-    "reflect-metadata": "^0.1.13"
+    "reflect-metadata": "^0.1.13",
+    "next-translate": "^1.0.1"
   },
   "devDependencies": {
     "@types/node": "^14.14.19",
@@ -33,7 +34,6 @@
   "peerDependencies": {
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-router-dom": "^5.2.0",
-    "next-translate": "^1.0.1"
+    "react-router-dom": "^5.2.0"
   }
 }
