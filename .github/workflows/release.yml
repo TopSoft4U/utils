@@ -36,7 +36,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
+          echo "@topsoft4u:registry=https://npm.pkg.github.com/" >> .npmrc
+          echo "https://npm.pkg.github.com/:_authToken=${{ secrets.NPM_TOKEN }}" >> .npmrc
           yarn install
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
