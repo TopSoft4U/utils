@@ -17,8 +17,6 @@
     "deps:check": "npx npm-check-updates --dep prod,dev,optional",
     "deps:update": "npx npm-check-updates --dep prod,dev,optional -u",
     "generate_indexes": "barrelsby --delete --directory ./src",
-    "preversion": "yarn run build",
-    "postversion": "git push --all origin -u && git push --tags origin",
     "indexes:typeorm": "barrelsby --delete --directory ./src/typeorm"
   },
   "dependencies": {
