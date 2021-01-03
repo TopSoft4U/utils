@@ -1,3 +1,5 @@
+import {NextApiRequest} from "next";
+import ntGetT from "next-translate/getT";
 import {Dictionary} from "./types";
 
 export const localeXTerritory: Dictionary<string> = {
@@ -9,4 +11,7 @@ export const localeXTerritory: Dictionary<string> = {
   "ru": "ru_RU",
 };
 
-export const fakeT = (str: string) => str;
+export const apiGetT = (req: NextApiRequest, ns: string) => {
+  const lang = req.query.__nextLocale as string;
+  return ntGetT(lang, ns);
+};
