@@ -1,5 +1,5 @@
 import {SyntheticEvent} from "react";
-import getT from "next-translate/getT";
+import useTranslation from "next-translate/useTranslation";
 
 export const isServer = () => typeof window === "undefined";
 export const isDev = () => process.env.NODE_ENV !== "production";
@@ -36,8 +36,8 @@ export const updateItemInArray = <T>(array: T[], index: number, value?: T) => {
   return newArray;
 };
 
-export const boolToText = async (val: boolean, lang = "en") => {
-  const t = await getT(lang, "shared");
+export const BoolToText = (val: boolean) => {
+  const {t} = useTranslation("shared");
 
   if (val)
     return t("shared:yes");
