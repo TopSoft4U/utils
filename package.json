@@ -1,7 +1,7 @@
 {
   "name": "@topsoft4u/utils",
   "description": "Hooks and stuff",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": "https://github.com/TopSoft4U/utils",
