@@ -15,6 +15,10 @@
     "React",
     "Utils"
   ],
+  "files": [
+    "dist",
+    "src"
+  ],
   "author": {
     "name": "Łukasz Kolasa",
     "email": "lukasz.kolasa@topsoft4u.com",
