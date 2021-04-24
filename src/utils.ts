@@ -1,15 +1,7 @@
 import {SyntheticEvent} from "react";
-import useTranslation from "next-translate/useTranslation";
 
 export const isServer = () => typeof window === "undefined";
 export const isDev = () => process.env.NODE_ENV !== "production";
-
-export const isDefined = (value: unknown): boolean => {
-  return !!value;
-};
-
-export const callIfExists = (func: unknown, ...args: unknown[]): unknown =>
-  (typeof func === "function") && func(...args);
 
 export const stopEvent = (e?: SyntheticEvent): void => {
   if (!e)
@@ -34,13 +26,4 @@ export const updateItemInArray = <T>(array: T[], index: number, value?: T) => {
   }
 
   return newArray;
-};
-
-export const BoolToText = (val: boolean) => {
-  const {t} = useTranslation("shared");
-
-  if (val)
-    return t("shared:yes");
-
-  return t("shared:no");
 };
