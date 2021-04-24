@@ -2,6 +2,8 @@
   "name": "@topsoft4u/utils",
   "description": "Hooks and stuff",
   "version": "1.0.10",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": "https://github.com/TopSoft4U/utils",
   "homepage": "https://github.com/TopSoft4U/utils",
   "bugs": {
@@ -25,7 +27,6 @@
       "url": "https://topsoft4u.com/"
     }
   ],
-  "main": "src/index.ts",
   "scripts": {
     "build": "yarn run clean && yarn run eslint && tsc",
     "typecheck": "tsc -p ./ --noEmit",
