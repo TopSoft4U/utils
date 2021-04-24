@@ -36,12 +36,14 @@
     "generate_indexes": "barrelsby --delete --directory ./src"
   },
   "devDependencies": {
-    "@types/node": "^14.14.32",
+    "@types/node": "^14.14.41",
     "@types/react": "^17.0.3",
-    "@types/react-router-dom": "^5.1.7"
+    "@types/react-router-dom": "^5.1.7",
+    "next": "^10.1.3",
+    "react": "^17.0.2"
   },
   "peerDependencies": {
-    "next": "^10.0.8",
-    "react": "^17.0.1"
+    "next": ">=10.x",
+    "react": ">=17.x"
   }
 }
