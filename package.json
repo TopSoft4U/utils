@@ -2,8 +2,12 @@
   "name": "@topsoft4u/utils",
   "description": "Hooks and stuff",
   "version": "1.0.12",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "files": [
+    "dist",
+    "src"
+  ],
   "repository": "https://github.com/TopSoft4U/utils",
   "homepage": "https://github.com/TopSoft4U/utils",
   "bugs": {
@@ -14,10 +18,6 @@
     "TopSoft4U",
     "React",
     "Utils"
-  ],
-  "files": [
-    "dist",
-    "src"
   ],
   "author": {
     "name": "Łukasz Kolasa",
@@ -32,23 +32,31 @@
     }
   ],
   "scripts": {
-    "build": "yarn run clean && yarn run eslint && tsc",
-    "typecheck": "tsc -p ./ --noEmit",
-    "clean": "rimraf --no-glob ./dist",
+    "prepare": "husky install",
+    "pre-commit": "yarn generate_indexes && yarn eslint && yarn typecheck",
+    "generate_indexes": "barrelsby --delete --directory ./src",
     "eslint": "eslint --ext js,jsx,ts,tsx src --fix",
+    "typecheck": "tsc -p ./ --noEmit",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.cjs.json",
+    "clean": "rimraf --no-glob ./dist",
     "deps:check": "npx npm-check-updates --dep prod,dev,optional",
-    "deps:update": "npx npm-check-updates --dep prod,dev,optional -u",
-    "generate_indexes": "barrelsby --delete --directory ./src"
+    "deps:update": "npx npm-check-updates --dep prod,dev,optional -u"
   },
   "devDependencies": {
+    "@topsoft4u/eslint-config": "^1.0.25",
+    "eslint": "^7.25.0",
+    "typescript": "^4.2.4",
     "@types/node": "^14.14.41",
     "@types/react": "^17.0.3",
-    "@types/react-router-dom": "^5.1.7",
-    "next": "^10.1.3",
-    "react": "^17.0.2"
+    "react": "^17.0.2",
+    "husky": "^6.0.0"
   },
   "peerDependencies": {
-    "next": ">=10.x",
     "react": ">=17.x"
+  },
+  "eslintConfig": {
+    "extends": [
+      "@topsoft4u"
+    ]
   }
 }
