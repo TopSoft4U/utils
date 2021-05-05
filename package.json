@@ -1,7 +1,7 @@
 {
   "name": "@topsoft4u/utils",
   "description": "Hooks and stuff",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
   "files": [
@@ -44,12 +44,12 @@
   },
   "devDependencies": {
     "@topsoft4u/eslint-config": "^1.0.25",
-    "eslint": "^7.25.0",
-    "typescript": "^4.2.4",
     "@types/node": "^14.14.41",
     "@types/react": "^17.0.3",
+    "eslint": "^7.25.0",
+    "husky": "^6.0.0",
     "react": "^17.0.2",
-    "husky": "^6.0.0"
+    "typescript": "^4.2.4"
   },
   "peerDependencies": {
     "react": ">=17.x"
