@@ -44,7 +44,7 @@
     "deps:update": "npx npm-check-updates --dep prod,dev,optional -u"
   },
   "devDependencies": {
-    "@topsoft4u/eslint-config": "^1.0.26",
+    "@topsoft4u/eslint-config": "^1.0.28",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.33",
     "eslint": "^8.1.0",
